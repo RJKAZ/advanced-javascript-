@@ -254,3 +254,19 @@ This bring us to Space Complexity
 
 We can also use Big O notation to analyze space complexity:
 How much additional memory do we need to allocate in order to run the code in our algorithm?
+
+So space complexity in a nut shell is how much memory is taken up
+
+As N grows, so to does the size of the input grows as well
+
+Sometimes you'll hear the term auxiliary space complexity to refer to space required by the algorithm, not including space taken up be the inputs
+
+Unless otherwise noted, when we talk abotu space complexity, technically we'll be talking about auxiliary space complexity. (which is what happens inside the algorithm)
+
+Space Complexity in JS - Rules of Thumb
+
+1. Most primative values (Booleans, numbers, undefined, null) are constant space
+2. Strings require O(n) space (where n is the string length)
+3. Reference types are generally O(n), where n is the length (for arrays) or the number of keys (for objects)
+
+- an example of space complexity - jump to the javascript
