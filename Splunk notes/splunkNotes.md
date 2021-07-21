@@ -158,3 +158,93 @@ An Add on is a subset of an app, Add-ons specify do not have Graphical user inte
 Apps are downloaded from Splunkbase.com - 1st and 3rd party apps, premium and free offerings.
 
 Some of the free apps however will require a license.
+
+So with learning Splunk
+
+Getting the data in
+
+So to reiterate, the Splunk Data Pipeline is IPIS
+Inputs - Parsing - Indexing - Search
+
+General Input Categories
+
+- File and Directory Inputs
+  - This allows you to monitor files and directories
+    - Both locally and remotely
+    - And you can monitor compressed files
+  - Upload
+    - upload files to splunk or to a remote Heavy Fowarder
+    - used for a one-time analysis
+  - MonitorNoHandle
+    - Available for Windows Hosts only
+    - Monitor files and directories that the system rotates automatically.
+- Network Inputs
+  - Data from TCP and UDP (Splunk recomends using TCP whenever possiable)
+    - syslog
+  - Data from SNMP events
+- Windows Inputs
+  - Windows Event Logs
+  - Registry
+  - Active Directory
+  - WMI (using fowarders is recommended over using WM)
+  - Performance Monitoring
+    (perfmon)
+
+Splunk can also take in other data sources - Metrics, Scripted Inputs, Modular Inputs, and HTTP Event Collectors
+
+- Ways to Configure Input in Splunk
+
+  - Through an App
+    - Many Apps have preconfigured inputs
+  - Splunk Web
+    - Settings > data inputs
+    - Settings > add Data
+  - CLI (Command line interface)
+    - ./splunk add monitor <path>
+  - Through inputs.conf
+    - Add a stanza for each input
+  - Guided Data Onboarding (GDO)
+    - Data input Wizard
+
+- Splunk has two main Fowarder types
+  - Universal - Takes Data from a data source and fowards it to a reciever - thats all it does. The data can even be another reciever - However these aren't part of Splunk itself and required a seperate instalation
+    The Universal Fowarder also does not search or parse any data, it just captures the data and fowards it on to something else
+  - Heavy - An advanced fowarder part of Splunk, Unlike Universal Fowarders, a Heavy Fowarder can not foward data, but also Parse data and route data, among many other things you can't do with a universal fowarder.
+
+Universal Fowarder Configuration Steps 1. Configure recieving on a Splunk Enterprise instance 2. Download and install the UF 3. Start the UF 4. Configure the UF to send data 5. Configure the UF to collect data from the host system
+
+- Side Note - Installing Splunk on my Mac was kind of weird...need to try installing Splunk on Windows
+
+- Summary
+  - Splunk Data Pipeline
+  - Configureing Inputs
+  - Types of forwarders
+  - configuring heavy fowarders
+  - configuring universal fowarders
+
+Splunk Quiz 2 -
+
+1. The Splunk Enterprise Trail license is valid for? - 60 days
+2. To collect and parse data at a source, you need a? - Heavy Fowarder
+3. Splunk can be set up in a distributed environment - True
+4. Splunk can be installed in the following enviromens - All of these (unix, linux, windows, mac, solaris)
+5. Select the best description of a SplunK App - A collection of configuration files that extend the functionality of Splunk
+6. A licensing violation is in effect for? - 30 Days
+7. Splunk will stop indexing your data during the violation period. - False
+8. To manage licensing in the Splunk GUI, navigate to - Settings/Licensing
+9. Search is a Splunk App? - True
+10. Where should you go to find and download Splunk apps? - splunkbase.com
+
+Splunk Quiz 3 -
+
+1. What is the default forwarding port? - 9997
+2. Universal Forwarders do not parse data - True
+3. Which port is the default management/deployment port - 8089
+4. Which type of forwarder requires a specific type of license? - Heavy
+5. On which platform can you use WGET to install a universal forwarder? All of these!
+   - Linux, Unix, Windows, Solaris, A/X,
+6. Other then the installation wizard, how can you configure a universal forwarder? - By editing the configuration files
+7. Universal Fowarders should also be installed on all indexes? - False
+8. Some syslog devices do not require Splunk Fowarders. Syslog data is generally recieved on port? - 514
+9. Which of the following is not a Splunk default metadata assignment? - Network
+10. Splunk can monitor both individual files and entire directories? - True
