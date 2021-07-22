@@ -269,4 +269,79 @@ Space Complexity in JS - Rules of Thumb
 2. Strings require O(n) space (where n is the string length)
 3. Reference types are generally O(n), where n is the length (for arrays) or the number of keys (for objects)
 
-- an example of space complexity - jump to the javascript
+- an example of space complexity - jump to the javascript line 56
+
+Now onto Logarithms 
+
+O(1), O(n), O(n^2) are the most common Big Os, or rather the most common Complexities
+
+But there are other Big O expressions that involve more complex mathematical expressions
+
+One such is the Logarithm  O(logN)
+
+Logs are the inverse of exponents (like multiplication and division)
+
+and example of that
+
+log v2(8) =3
+
+v2 above stands for base 2
+
+If we raise 2 to what power, what gives us 8? the answer is 3
+
+2^3 = 8
+
+log v2(value) = exponent => 2^exponent = value 
+
+logs can work with other bases like Base 3, but the binary log 2 is the most common 
+
+We'll omit the 2, so 
+
+log === log v2
+
+This isn't a math course, so here's a rule of thumb
+
+The logarithm of a number roughly measures the number of times you can divide that number by 2 before you get a value that's less than or equal to one. 
+
+8 / 2 = 4
+4 / 2 = 2
+2 / 2 = 1
+
+log(8) = 3
+
+but a number like 25 doesn't go as cleanly
+
+25 / 2
+12.5 / 2
+6.25 / 2
+3.125 / 2 
+1.5625 / 2
+0.78125 - we are finally below 1
+
+so the answer to this is
+
+log(25 =? 4.64)
+
+the actual calculation itself isn't important, what matters if we look at it on a chart
+
+Logarithm Complexity
+Logarithmic time complexity is great
+
+O(n^2) - O(nlog n) - O(n) - O(log n) - O(1)
+
+Who Cares?
+1. Certain searching algorithms have logarithmic time complexity
+2. Efficent sorting algorithms involve logarithms
+3. Recursion sometimes involves logarithmic space complexity 
+
+Basicly in the future, we will see it
+
+Recap of BIG O 
+
+1. To analyse the performance of an algorithm, we use Big O Notation 
+2. Big O Notation can give us a high level understanding of the time or space complexity of an algorithm
+3. Big O Notation doesn't care about precision, only general trends (Linear? quadratic? constant?)
+4. The time or space complexity (as measured by Big O) depeneds only on the algorithm, not the hardware used to run the algorithm.
+5. Big ) Notation is everywhere so we will get alot of practice
+
+
