@@ -248,3 +248,156 @@ Splunk Quiz 3 -
 8. Some syslog devices do not require Splunk Fowarders. Syslog data is generally recieved on port? - 514
 9. Which of the following is not a Splunk default metadata assignment? - Network
 10. Splunk can monitor both individual files and entire directories? - True
+
+------------Searching in Splunk Notes---------------- 
+What is a Search Processing Language? The technical definition 
+
+SPL encompasses all the search commands and their functions, arguments, and clauses. its syntax was originally based on the Unix pipeline and SQL. The scope of SPL includes data searching, filtering, modification, manipulation, insertion, and deletetion. 
+
+But what does all that mean? What does that mean to search in Splunk?
+- its the primary way users interact with data in Splunk
+  - Query
+  - Calculate
+  - Transform
+  - Organize
+  - Visualize
+  - Manipulate 
+
+We do this thru the Search and Reporting App
+  - Its the Default App
+    - Comes built-in to Splunk
+  - Primary Way to search and analyze data in Splunk
+    - Index Data
+    - Build reports and visualizations
+    - configure alerts
+    - create dashboards
+
+--- Time ---
+
+Splunk searchs in the data for timestamps
+- Timestamps are converted to UNIX time and stored in the _time field
+- Splunk assumes that any data indexed is in the time zone of the splunk instance 
+
+The _time Field is very important (underscore time field)
+
+- A default, and essential field 
+- Values stored in the _time field are stored in UNIX time
+- In Splunk Web, the _time field appears in human readable format
+- Use search commands to manipulate the time format
+
+It looks for timestamps in event data - if there is no timestamp, Splunk looks for the time information associated with the source name or file name.
+If it can't find anything there, it will look at the file modification time, and if all else fails, as a last resort it will use the current system time 
+
+Bottom line, Splunk will not let us have Data without Time 
+
+One way Splunk uses time is for the Time Range Picker
+- Splunk uses time stamps for the time range picker
+- The defaults for the time range picker are Real-Time, Relative, and Other
+- We can also do some more granular things with time selection 
+
+Specify Absolute Time Ranges using SPL
+- specify time ranges directly in your search
+- for absolute ranges
+- for relative ranges:
+  - + or - to indicate the offset
+  - Number
+  - Time unit (years y, quarters q, months mon, weeks w, days d, hours h, minutes m, seconds s)
+
+Time Variables 
+- format time using time variables
+- useful when evaluating time and specifying time in SPL
+
+Variable - Description 
+%c       - Date and time in the format of the server 
+%H       - Hour (24-hour clock)
+%I       - Hour (12-hour clock)
+%M       - Minutes (00 - 59)
+%p       - AM or PM 
+%S       - Seconds (00 - 59) 
+(there are alot more, too many to rewrite here)
+
+Converting Time using strftime
+- We can convert time in the format we want during search time using and eval expression, strftime, and time variables on the _time field 
+
+Kind of really complicated but 
+
+_time          ---->   New_Time
+160617990              1:05, PM 
+
+Short Quiz
+
+So its currently Monday January 1st, 1900 at 5:00pm
+
+String                        -     Answer
+%A, %B, %d, %Y - %I:%M %p     -     Monday, January 01, 1900 - 5:00pm 
+
+Basic Searching 
+
+Broad Search Terms - metadata
+
+When begining a search, we we know these, we should start with these 
+
+- Index
+  - index = mian, index = default
+
+- Host
+  - host = server.com, host = 192.168.1.1
+
+- Source, sourcetype
+  - source = /var/lib, sourcetype = csv
+
+Basic Search Commands
+- Chart / timechart
+  - returns results in tabular output for charting
+- rename 
+  - Renames a specific field
+- sort
+  - Sort results by specified fields
+- states
+  - Statistics
+- eval
+  - Calculates an expression
+- dedup 
+  - removes duplicates
+- table
+  - builds a table with specific fields 
+
+Constructing a Basic Search 
+Search Terms | Commands
+
+----- Fields ------
+- Searchable key-value pairs
+- Key = Value 
+  user = user1
+  ip_addr = 192.168.1.1
+  message = error
+  host = websvr.com
+
+Most of the data we feed Splunk won't have key-value pairs, but that doesn't stop splunk 
+- Splunk automaically discovers fields 
+  - first it discovers default fields - Host, source, sourcetype, time, etc.
+  - then it looks for obvious key-value pairs in the first 100 events of the data 
+  - then it builds fields using custom field extractions built by the user or by an app. These field extractions are stored in conf. files
+
+  Splunk has three levels of field / search discovery 
+  1. Fast
+  2. Smart
+  3. Verbose 
+
+  Each has their own specific use case and each can effect the performance of splunk differently. 
+
+  Smart is the default mode 
+
+  If your data has clear key-value pairs, Splunk doesn't have to work so hard so it would switch automatically from Smart to Fast. Fast mode bascially disables field discovery 
+
+  Verbose is used when you don't know much about the the data and you need to harness the full power of Splunk, tradeoff is the speed, it will take much longer 
+
+  Field Extractions - Custome field extractions can be built using the Splink field extractor 
+
+  Uses regular expressions (regex) to extract fields based on patterns 
+
+
+
+
+
+
