@@ -397,7 +397,63 @@ Most of the data we feed Splunk won't have key-value pairs, but that doesn't sto
   Uses regular expressions (regex) to extract fields based on patterns 
 
 
+// So in the demo section, lets solve a bussiness problem with a basic search 
+
+The Bussiness asks What the backup duration was for each domain in the last 30 days 
+
+1. we start a new search, using the homework data set of splunkmain and set the time for the last 30 days. I got 120 events.
+
+Under interesting fields, Backupduration is first. 
+
+down on that list is domian, in which we have 5 domains 
+
+we will search both of those fields with wildcards
+
+host=splunkmain backupduration=* domain=*
+
+but to make a table out of it
+
+host=splunkmain backupduration=* domain=* | table _time backupduration domain 
+
+after you se4arch that, click visualization and by default it will build a column chart 
+
+however since domain isn't a numerical value, we can remove it and search again
+
+host=splunkmain backupduration=* domain=* | table _time backupduration
+
+No we have a trend with backup duration 
+
+now we save panel to new dashboard
+
+now we search for the domain again since thats what the bussiness asked for
+
+it would also be useful to on the dashboard to display the average time that backups are taking 
+
+for that we use a very popular command called stats with the keyword avg, and in parentheses, the field we want the average of 
+
+host=splunkmain backupduration=* domain=* | stats avg(backupduration)
+
+this will give us the average we want
+
+with my dataset, I get an average backupduration of 8.9, which rounds to 9
+
+select visualiztion and select single value ( do not underestimate the power of a single value visualization)
+
+then we go to format and change the caption to Average Backup Duration last 30 days, and then change the number format to give us two decimal places
+and then we set the unit as hours
+
+and what the hell, lets use colors, switch the color mode on the bottom to color the background 
+
+But lets say we want to change the color to yellow if the backup duration is over 9 hours. So under 9 hours we're good, over 9 hours we're bad and in warning status, and 15 and above we are in critical
+
+Now lets make a panel that shows the maximum backup duration by domain 
 
 
+host=splunkmain backupduration=* domain=* | stats max(backupduration) by domain
 
+this will give us the domains with the backups taking the longest 
+
+format the data change the caption to Domain with Longest Backup Duration 
+
+Now we can view the dashboard and make it prettier 
 
