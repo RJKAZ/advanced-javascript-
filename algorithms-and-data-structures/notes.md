@@ -271,13 +271,13 @@ Space Complexity in JS - Rules of Thumb
 
 - an example of space complexity - jump to the javascript line 56
 
-Now onto Logarithms 
+Now onto Logarithms
 
 O(1), O(n), O(n^2) are the most common Big Os, or rather the most common Complexities
 
 But there are other Big O expressions that involve more complex mathematical expressions
 
-One such is the Logarithm  O(logN)
+One such is the Logarithm O(logN)
 
 Logs are the inverse of exponents (like multiplication and division)
 
@@ -291,17 +291,17 @@ If we raise 2 to what power, what gives us 8? the answer is 3
 
 2^3 = 8
 
-log v2(value) = exponent => 2^exponent = value 
+log v2(value) = exponent => 2^exponent = value
 
-logs can work with other bases like Base 3, but the binary log 2 is the most common 
+logs can work with other bases like Base 3, but the binary log 2 is the most common
 
-We'll omit the 2, so 
+We'll omit the 2, so
 
 log === log v2
 
 This isn't a math course, so here's a rule of thumb
 
-The logarithm of a number roughly measures the number of times you can divide that number by 2 before you get a value that's less than or equal to one. 
+The logarithm of a number roughly measures the number of times you can divide that number by 2 before you get a value that's less than or equal to one.
 
 8 / 2 = 4
 4 / 2 = 2
@@ -314,7 +314,7 @@ but a number like 25 doesn't go as cleanly
 25 / 2
 12.5 / 2
 6.25 / 2
-3.125 / 2 
+3.125 / 2
 1.5625 / 2
 0.78125 - we are finally below 1
 
@@ -330,18 +330,86 @@ Logarithmic time complexity is great
 O(n^2) - O(nlog n) - O(n) - O(log n) - O(1)
 
 Who Cares?
+
 1. Certain searching algorithms have logarithmic time complexity
 2. Efficent sorting algorithms involve logarithms
-3. Recursion sometimes involves logarithmic space complexity 
+3. Recursion sometimes involves logarithmic space complexity
 
 Basicly in the future, we will see it
 
-Recap of BIG O 
+Recap of BIG O
 
-1. To analyse the performance of an algorithm, we use Big O Notation 
+1. To analyse the performance of an algorithm, we use Big O Notation
 2. Big O Notation can give us a high level understanding of the time or space complexity of an algorithm
 3. Big O Notation doesn't care about precision, only general trends (Linear? quadratic? constant?)
 4. The time or space complexity (as measured by Big O) depeneds only on the algorithm, not the hardware used to run the algorithm.
 5. Big ) Notation is everywhere so we will get alot of practice
 
+Now that we covered BIG O, lets spend a little time analyzing the things we do all the time in JS: working with Arrays, Objects, and built in methods
 
+So out Objectives
+
+1. Understand how objects and arrays work through the lens of Big O
+2. Explain why adding elements to the begining of an array is costly
+3. Compare and Contrast the runtime for arrays and objects, as well as built in methods.
+
+So Objects - Unordered, Key Value Pairs
+
+Here is an example of a JavaScript Object
+
+let instructor = {
+firstName: "Kelly",
+isInstructor: true,
+favoriteNumbers: [1,2,3,4]
+}
+
+So when do we use Objects?
+
+- When we don't need order
+- When you need Quick/fast access/insertion and removal
+
+And when we say Quick, we mean constant time
+
+Big O of Objects
+Insertion - O(1)
+Removal - O(1)
+Searching - O(N)
+Access - O(1)
+
+When you don't need ordering, objects are an excellent choice!
+
+Now behind the scenes its a little more complicated, but for now all that we need to know is
+Javascript is able to Add something into an object, Store a new piece of information in constant time
+Its also able to retrieve something in constant time, and update something in constant tim.
+
+So its quick and fast for all the basic operations
+
+There is no order, so there is no begining and no end, so it doesn't matter where you insert, since there is no where
+
+Like you can't insert into the begining, end, or middle of an object
+
+Now where most of Objects are Constant Time O(1)
+
+Searching is different, that is Linear time
+
+(accesing information with a key is constant time)
+
+But it we want to check if there is a value without a key, thats different. Searching requires the K, so the amount N grows, so too will the amount of time to search. thats why Searching is O(n)
+
+Big O of Object Methods
+
+Object.key - O(N)
+Object.values - O(N)
+Object.entries - O(N)
+hasOwnProperty - O(1)
+
+So if there is 100 properties in our object, there will be 100 things we need to do. So it runs roughly in line with N
+
+Quiz -
+
+1. What is the Big O for adding a key and value into an object?
+   answer - O(1)
+2. What is the Big O for accessing a key in an Object?
+   answer - O(1)
+3. What is the Big O for removing a key in an object?
+   answer - O(1)
