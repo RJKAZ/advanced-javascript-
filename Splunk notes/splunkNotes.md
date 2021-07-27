@@ -457,3 +457,141 @@ format the data change the caption to Domain with Longest Backup Duration
 
 Now we can view the dashboard and make it prettier 
 
+TIME- 
+
+to be honest, this new search query confuses me
+
+Its basicly formating the data for the search 
+
+host=splunkmain | eval new_time=strftime(_time, "%m-%d-%y %I:%M%p") | table _time new_time
+
+%m-%d-%y is for month, day, and year
+
+Field Extractions - not even sure how to take notes for this part, just rewatch the video a couple of itmes. Section 5 -30 (5th part of the demo)
+
+Intermediate Searching >
+Recall the search pipline - we start with alot of data, and we widdle it down to the data we want in the format we want
+Broad Search => Keywords/Booleans/Fields => Commangs => Table/Viz
+
+The most popular transforming commands
+- Top
+  - | top <field>
+  - Returns the most common values of a given field
+  - Defaults to 10 fields 
+  - Can be combined with limit=<number>
+  - Automatically builds a table with count and percent columns
+  - Can be used with multiple fields 
+    - "return the top value for a field organized by another field"
+- Rare
+  - | rare <field> (same syntax as top)
+  - Opposite of top
+  - Returns the least common values of a field 
+  - Options are identical to top
+- Stats
+  - more complicated syntax
+  - | stats <function(field)> By <field(s)>
+  - Some common functions
+    - count, avg, max, mean, median, sum, stdev, values, list 
+
+some examples of stats
+
+| stats avg(kps) BY host - 
+
+AVG(kps)          host
+654.78            host1.domain.com
+
+| stats count(failed_logins) BY user
+
+failed_logins      user
+42                  jwebber
+
+Like to pull up a search of the homework data by state
+
+host=splunkmain state=* usr=* | stats count(usr) BY state
+
+this gives us a statisitcal table listing every state with the number of users 
+
+slight modification adding AS cuser
+
+host=splunkmain state=* usr=* | stats count(usr) AS cuser BY state
+
+and a further modifcation that sorts it and puts the highest number at the top
+
+host=splunkmain state=* usr=* | stats count(usr) AS cuser BY state | sort -cuser
+
+___________________________________________________
+
+another example, using the interesting fields of level
+
+- host=splunkmain state=* level=critical | top state by level
+
+searching that gives us the level, state, count, and percent
+
+but then we try rare, which gives is the opposite of top
+
+- host=splunkmain state=* level=critical | rare state by level
+
+
+Quiz - 
+Question 1 - 
+
+Which of the following needs to be placed in quotes
+
+Keywors, Phrases, Commands, Transformations 
+
+the answer is Phrases 
+
+Question 2 - 
+
+Which search mode does not discover fields? 
+
+Fast, Verbose, Smart, No_Fields
+
+the answer is Fast
+
+Question 3 - 
+
+The time 11:33 PM can be expressed in the following Splunk variables: 
+
+the answer is %I:%S %p
+
+Question 4 - 
+
+The data Monday, February 23, 1085 can be expressed in the following Splunk variable
+
+the answer is %A, %B %e, %Y
+
+Question 5 - 
+
+Which of the following is not an option for extracting fields
+ddex, regex, delimiters
+
+the answer is ddex
+
+question 6 - 
+
+Indices are "buckets" where Splunk data is stored on disk
+
+True
+
+Question 7 - 
+
+Splunk detects fields as 
+
+key=value pairs
+
+Question 8 - 
+
+The basic search pipeline goes from general to specific 
+
+Question 9 - 
+
+The Search app comes built into Splunk enterprise
+
+true
+
+Question 10 - 
+
+SPL stands for 
+
+Search Processing Language 

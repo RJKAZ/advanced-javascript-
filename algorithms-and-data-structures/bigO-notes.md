@@ -413,3 +413,53 @@ Quiz -
    answer - O(1)
 3. What is the Big O for removing a key in an object?
    answer - O(1)
+
+
+-- BIG O of ARRAYS 
+
+The biggest selling point to Arrays is that they are ordered, they are ordered lists. Unlike an object where things just float around, Arrays have an index and thus are ordered by it. the order of an array can be useful, but it has its own costs. 
+
+When to use an Array?
+1. When you need order
+2. When you need fast access/insertion and removal (sort of...)
+
+(there are other data structures, like a singular linked list or a double linked list, but those aren't free to use like Arrays and Objects, we'll discuss linked lists later)
+
+Big O of Arrays 
+
+Insertion - it depends
+Removal   - it depends
+Searching - O(N)
+Access    - O(1)
+
+To note, in Javascript, accessing by Index is really fast. Like if you have a array with 10,000 index's and you need to access index 9000, Javascript doesn't go thru them all, it can just access the 9000 index as quickly and easily as it can any other index. So it doens't matter how long/far the array is. 
+
+Insertion and Removal are more complicated
+
+For inserting, if I push something into an array at the last index, that would be O(1). The real problem is when you try an insert at the begining of an array 
+
+Adding to the begining of an array would mess up the index, and every element would have to be re-indexed. An array with 4 elements thisn't so much an issue, but an Array with thousands of elements is a nightmare. So if we inset at the begining of an Array, it becomes O(N) since the amount of time it would take, would grow in proportion with N
+
+Removing presents the same problem. Removing from the begining would require reindexing. Sometimes you need to have something at the begining, so being able to do this is fine, but you have to be aware of how the big O will change and its not as fast and efficent as removing something from the end. 
+
+The only exception to this is adding to an empty array since it doesn't matter which way since its the same regardless. 
+
+Big O also applies to Array Methods
+
+- push      - O(1)
+- pop       - O(1)
+- shift     - O(N)
+- unshift   - O(N)
+- concat    - O(N)
+- slice     - O(N)
+- splice    - O(N)
+- sort      - O(N*logN) (sorting is more complex, we will get into this more later in the course)
+- forEach/map/filter/reduce/etc - O(N)
+
+Push and Pop are the fastest, and Sort is the Slowest. Everything else is based on the size of N
+
+Quiz - 
+
+What is the Big O for pushing into an Array  - O(1)
+What is the Big O for shifting into an Array - O(N)
+What is the Big ) for the forEach function   - O(N)
