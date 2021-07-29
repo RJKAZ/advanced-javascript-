@@ -595,3 +595,101 @@ Question 10 -
 SPL stands for 
 
 Search Processing Language 
+
+-- Visualizing Your Data ---
+
+- The basics of visualization 
+- modeling data using data models
+- reporting and alerting 
+- The Pivot Tool
+
+Widly liked Quote on the subject
+
+"Success in Data Visualization does not start with data visualization."
+
+Why Visualize Data?
+
+- Data alone is not very interesting to look at
+- non-technical people might not be interested in tabular data
+- visualizing data is more human centric
+  - Humans are pattern recognizing machines
+  - From an early age we are taught to visualize data (blocks with letters)
+  - Visualizations are art and therefore have an emotional impact on us. 
+
+Some Vocabulary 
+
+Dimensions - Something you want to measure 
+
+Data Visualization Contesxt
+- Understand your audience 
+  - Executives usually have different needs than individual contributors 
+  - Publically available dashboards might display different data than       internal-only reports and dashboards
+- Understand Your Own Goals
+  - What is the message for which you are using this visualization
+  - like the famous "authors purpose" consider the PIE: Do you want to persuade, inform, or entertain? 
+
+The Types of Visualizations in Splunk are the most typical
+
+Piecharts, Linecharts, Area Charts, Column Charts, tables, guages, and never underestimate the power of a single value.
+
+Data Models - 
+  - Make machine data easier to understand\
+  - simplify complex data through abstraction 
+  - group specific types of data
+
+Data models are used all the time. math equations are essentially data models 
+
+Data Model Structure
+- Stacks of datasets
+- Datasets are stacks of knowledge objects
+- Knowledge objects include saved searches, field extractions, tags, and more 
+
+- Events - most commonly used 
+  - Event Constraints - Must include an index constraint (index=)
+  - Searches - Splunk saved searches that include transforming commands, etc. 
+  - Search Constraints - constrained to the full search string (must include an index constraint (index=))
+  - Transactions - combine multiple events from one or many sources into a single event 
+  - Transaction Constraints - must be legally formed transaction search 
+
+- Fields 
+  - Can be added to roots and children 
+  - Children inherit all fields from their parent
+    - Auto Extracted - Splunk automatically discovered fields
+    - Eval - A field generated as a result of an eval expression 
+    - Lookup - Fields that are the result of a lookup
+    - Regular expression - fields extracted by regex  
+
+Reporting and Alerting 
+
+- Reports and alerts are knowledge objects in Splunk 
+- To create reports and alerts, you need a splunk exterprise license 
+  - The Free version disables reports and alerts
+
+What is a Report? 
+- Saved Searches that can run on a schedule and perform an action 
+  - send an e-mail to report consumers
+  - embed on a web page
+  - update a dashboard panel
+  - run a script 
+  - Scheduled reports can run on the time your define, hourly, weekly, daily, monthly, etc
+
+- You can stagger the report runnign window 
+  - useful if you have a lot of reports running at the same time
+- You can also set an alert
+  - Alert Actions can include
+    - send an email
+    - trigger a script
+    - use a webhook
+    - list in triggered alerts
+    - USe and app (Like Pagerduty ot Slack)
+
+
+- The Pivot Tool - Why use it?
+  - Create dashboards, reports, and alerts without using SPL
+  - Provides a drag and drop interface to Splunk users
+  - Pivot functionality is built on data models 
+
+Basic Pivot functions include; filter, split by row, split by column, column value  
+
+All pivots use a time range, and the more narrowly you define the time range, the better
+
