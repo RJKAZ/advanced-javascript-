@@ -693,3 +693,41 @@ Basic Pivot functions include; filter, split by row, split by column, column val
 
 All pivots use a time range, and the more narrowly you define the time range, the better
 
+- Deployment and Forwarder Management
+
+- Deployment Server
+
+- A server class defines a group fo Splunk deployment apps and add them to its member criteria
+- each client of a server class reconciles its apps with the server
+  - if it is missing any, it pulls them from the deployment server
+- Deployment apps are located in /etc/deploymentapps
+- to manage deployment servers, go to settings, Distributed environment, forwarder management 
+
+Users, Roles, and Authentication 
+
+Splunk Users
+Settings > Access Controls
+
+- can be defined locally
+- can be defined in a directory like LDAP or AD (active directory)
+
+Five Built in Roles
+  1. admin
+  2. power
+  3. user
+  4. can_delete
+  5. splunk-system-role
+
+Splunk administrators can also create custom roles
+- some apps come with custom roles
+  - winfra-admin, vmware_admin, etc. 
+
+Authenticated Options
+- local
+- LDAP
+- SAML
+- Scripted SSO
+
+- Splunk recommneds using LDAP to manage authentication
+- Splunk works with Open LDAP an Active Directory
+
