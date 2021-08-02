@@ -731,3 +731,124 @@ Authenticated Options
 - Splunk recommneds using LDAP to manage authentication
 - Splunk works with Open LDAP an Active Directory
 
+
+- Splunk configuration files
+  - they govern how Splunk Behaves
+  - Are like Linux configuration files (.conf)
+  - Multi-layered
+
+again, this was said way earlier, but do not change any configuration file in the default directory. 
+
+All modifications should be made in the local directory. 
+
+When Splink starts, congfiguration files are merged into a single runtime model
+
+if there are no duplicate stanzas, the runtime model is the union of all configuration files
+
+if there are conflicts (same stanza names, etc) the setting with the highest precedence is used. 
+
+the configuration precedence in splunk is as follows
+1. System/local directory
+2. App/local directory
+3. App/default directory
+4. System/default directory
+
+now there are some important configuration files to note
+
+- inputs.conf (defines data input)
+- outputs.conf (governs forwarding behavior)
+- props.conf (indexer configurations, source type rules, and more)
+- limits.conf (defines limits for search commands)
+
+Splunk Knowledge Objects
+
+- Knowledge Objects add knowledge to and enrich your data
+- user or app created
+- includes - saved searches, field extractions, tags, event types, lookups, reports, alerts, data-models, and more. 
+
+- Saved Searches 
+  - can be saves as reports, alerts, dashboard panels, or event types
+  - defined in savedsearchs.conf
+- Field Extractions 
+  - Fields can be extracted using the field extraction editor
+  - Regex or Delminter
+  - Defined in props.conf
+- Tags 
+  - Allow you to assign names to specific field and value combinations
+- Event Types 
+  - like a named saved search
+  - A "tag+"
+  - If you have a specific search you search for frequently just create an event type instead of typing the specific search everytime
+
+Lookup Tables
+- add custom fields to events from external sources, like csv files
+
+Like you can tell Splunk to look up something with a Region code and instead have it display a region name for that code
+Region Code      =>      RegionName
+1012             =>       West US
+
+Final Exam 
+
+1. Which is the best description of Splunk
+  - Splunk is operational intelligence that consumes and makes machine data useable and valuable
+
+2. What are the building blocks of a Splunk App?
+  - Configuration files
+
+3. Best Place for help?
+  - answers.splunk.com
+
+4. How does timechart differ from chart?
+  - timechart forces the x-axis to be _time. Chart does not
+
+5. Another way to say | is
+  - Take the output of the commands before it, then do this with the output
+
+6. Whats a difference between a heavy fowarder and a universal forwarder?
+  - A heavy forwarder is a complete installation of Splunk, a universal forwarder is a light agent 
+
+7. Which search mode will Splunk default to if your search specifices fields?
+  - Fast
+
+8. What is the "Language of Splunk" known as?
+  - SPL: Searchk Processing Language
+
+9. The default Splunk Fowarding and managment ports are respectivly 
+  - 9997, andd 8089
+
+10. Splunk assings which three fields as default metadata
+  - Host, source, sourcetype
+
+11. The structure of a Splunk configuration files is
+  - [stanza]
+    attribute=value
+
+12. What is the purpose of a Lookup
+  - allows you to add custom fields to events from external sources like csv files. 
+
+13. Searchs in the search pipeline go from 
+  - general to specific 
+
+14. Whats wrong with this search 
+  "host=homework user=* status=failed stats count(status) BY user | rename count(status) as "Number of Failed Logins"
+
+  - you need to have a | before the states command
+
+15. Which type of authentification method does Splunk recommend for anything other then a small deployment
+  - LDAP/AP
+
+16. The rare function returns, ____ while the top function returns ___
+
+  - Least common values, most common values 
+
+17. The enterprise trail license is valid for___, after which point it will convert to a ___ license 
+  - 60 days, free
+
+18. Heavy fowards
+   - require a forwarder license
+
+19. Which best describes the difference between a tag and an event type?
+  - event types can contain multiple fields, while tags can only contain one
+
+20. Which is not one of the four main functions of splunk
+  - compressing, 
