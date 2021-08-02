@@ -127,3 +127,17 @@ function charCount(str) {
 
 writing out steps like this is important, because even if you can't solve the problem, it means you formulated an approach, which can still help you in an interview
 Or if you run out of time, the interviewer could still see where you were going.
+
+
+Step 4 - Solve/Simplify
+
+Sometimes in an interview, you want to have something to show for yourself. 
+Write the code you can just so you have that to show
+
+And simplifying a problem might give you insight how to solve the problem. 
+
+Simplify 
+    - Find the core difficultly in what you're trying to do
+    - Temporarilly ignore that difficulty
+    - Write a simplified solution 
+    - Then incorporate that difficulty back in
