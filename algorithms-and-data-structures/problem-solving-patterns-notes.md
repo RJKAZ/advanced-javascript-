@@ -180,3 +180,96 @@ Refactoring Questions.
 5. Can you improve the performance of your solution?
 6. Can you think of other ways to refactor?
 7. How have other people solved this problem?
+
+So with that same function, here is another way of writing it
+
+function charCount(str) {
+var obj = {};
+for (var i = 0; i < str.length; i++){
+var char = str[i].toLowerCase();
+if (/[a-z0-9]/.test(char)) {
+if (obj[char] > 0) {
+obj[char]++;
+} else {
+obj[char] = 1;
+};
+}
+}
+return obj;
+}
+
+But heres a refactored way of writing it without the forloop
+
+function charCount(str) {
+var obj = {};
+for (var char of str) {
+char = char.toLowerCase();
+if (/[a-z0-9]/.test(char)) {
+if (obj[char] > 0) {
+obj[char]++;
+} else {
+obj[char] = 1;
+}
+}
+}
+return obj;
+}
+
+charCount("Hello hi!")
+{h: 2, e: 1, l: 2, o: 1, i: 1}
+
+to refactor it further, there is even a shorter way to solve this
+
+functon charCount(str) {
+var obj = {};
+for (var char of str){
+char = char.toLowerCase();
+if (/[a-z0-9]/.test(char)) {
+obj[char] = ++obj[char] || 1;
+}
+}
+return obj;
+}
+
+- note to see - research regular expressions and how to do them in JavaScript
+
+the regular expression if the (/[a-z0-9]/)
+
+but even then there is a way to solve this without the regular expression, and this techncially will run faster
+
+function isAlphaNumeric(char) {
+var code = char.charCodeAt(0);
+if (!(code > 47 && code < 58) && // numeric (0-9)
+!(code > 64 && code < 91) && // upper alpha (A-Z)
+!(code > 96 && code < 123)) { //lower alpha (a-z)
+return false;
+}
+return true;
+}
+
+that above example doesn't exactly work the same way, but appling that code can refactor the previous code without the regular expression
+
+functon charCount(str) {
+var obj = {};
+// for each character of our string
+for (var char of str){
+// if that character is alphanumeric
+if (isAlphaNumeric(char)) {
+// we're going to lowercase it
+char = char.toLowerCase();
+// and then add it into our object, or initialize it to 1 and add 1 to the current value
+obj[char] = ++obj[char] || 1;
+}
+}
+return obj;
+}
+
+- Recap!
+
+1. Understand the problem - ask questions, clarify, make sure you understand it
+2. Explore concrete examples - understanding inputs, outputs, errors, etc
+3. Break it down - either pseudo code line by line, or just for the parts you need
+4. Solve/Simplify - try and solve something where I could reincorporate the problem back in
+5. Look back and refactor. There is always room for refactoring.
+
+charCodeAt(0)
