@@ -377,3 +377,18 @@ An anagram is a word, phrase, or name, formed by rearranging the letters of anot
 - jump to the JavaScript for this. 
 
 
+-- Multiple Pointers Pattern -- 
+
+Creating pointers or values that correspond to an index or position and move towards the begining, end, or middle based on a certain condition
+
+very efficent for solving problems with minimal space complexity as well. 
+
+Heres an example
+
+Write a function called sunZero which accepts a sorted array of integers. the function should find the first pair where the sum is 0. Return an array that includes both values that sum to zero or undefined if a pair does not exist. 
+
+sumzero([-3, -2, -1, 0, 1, 2, 3]) // [-3,3]
+sumzero([-2,0,1,3]) // undefined
+sumzero([1,2,3]) // undefined
+
+jump back to javascript

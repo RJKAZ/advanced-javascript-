@@ -221,6 +221,8 @@ function validAnagram(first, second) {
     // if letter exists, increment, otherwise set to 1
     lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
   }
+  console.log(lookup);
+  // loop over the 2nd string
   for (let i = 0; 1 < second.length; i++) {
     let letter = second[i];
     // can't find letter or letter is zero then its not an anagram
@@ -233,4 +235,43 @@ function validAnagram(first, second) {
   return true 
 }
 
-validAnagram('anagram', 'nagaram');
+console.log(validAnagram('tim', 'mitt'));
+
+// this returns false, figure out why....
+
+// Multiple Pointers Pattern
+
+function sumZero(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for(let j = i+1; j < arr.length; j++) {
+      if(arr[i] + arr[j] === 0){
+        return [arr[i], arr[j]];
+      }
+    }
+  }
+}
+sumZero([-4, -3, -2, -1, 0, 1, 2, 5])
+
+// time complexity - O(N^2)
+// space complexity - O(1)
+
+// refactored
+
+function sumZero1(arr){
+  let left = 0;
+  let right = arr.length -1;
+  while(left < right) {
+    let sum = arr[left] + arr[right];
+    if(sum === 0) {
+      return [arr[left], arr[right]];
+    } else if(sum > 0){
+      right--;
+    } else {
+        left++;
+    }
+  }
+}
+sumZero1([-4, -3, -2, -1, 0, 1, 2, 5])
+
+// time complexity - O(N)
+// Space Complexity - O(1)
