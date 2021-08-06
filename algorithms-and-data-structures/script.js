@@ -159,3 +159,78 @@ subtotals(32, 41, 65, 87);
 // This one is acctually O(n)
 
 // Section 3 of Course
+
+
+// The frequency counter pattern from section 5
+
+// so in this code ** (aka double asterix) is the exponentiation operator 
+// its is the equivilent of Math.pow
+// so Math.pow() returns the base to the exponent power as in base^exponent
+
+console.log(Math.pow(7,3));  // this returns 343
+
+// which is 7 to the 3rd power, or 7 * 7 * 7
+
+function same(arr1, arr2) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  let frequencyCounter1 = {}
+  let frequencyCounter2 = {}
+  for(let val of arr1) {
+    frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1
+  }
+  for(let val of arr2) {
+    frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1
+  }
+  console.log(frequencyCounter1);
+  console.log(frequencyCounter2);
+  for (let key in frequencyCounter1) {
+    if(!(key ** 2 in frequencyCounter2)) {
+      return false 
+    }
+    if(frequencyCounter2[key ** 2] !== frequencyCounter1[key]){
+      return false
+    }
+  }
+return true
+}
+
+same ([1,2,3,2,5], [9,1,4,4,11])
+
+// The Anagram Question from Section 5
+
+// Given two strings, write a function to determine if the second string is an anagram of the first
+
+function anagram(str1, str2) {
+
+}
+
+function validAnagram(first, second) {
+  // if the length of the two strings is no equal, immediently return false
+  if (first.length !== second.length) {
+    return false // there are no anagrams of different lengths
+  }
+
+  //create an object named lookup
+
+  const lookup = {}
+  //loop thru the 1st string called down below - so this is looping over anagram 
+  for (let i = 0; i < first.length; i++) {
+    let letter = first[i];
+    // if letter exists, increment, otherwise set to 1
+    lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
+  }
+  for (let i = 0; 1 < second.length; i++) {
+    let letter = second[i];
+    // can't find letter or letter is zero then its not an anagram
+    if (!lookup[letter]) {
+      return false; 
+    } else {
+      lookup[letter] -= 1;
+    }
+  }
+  return true 
+}
+
+validAnagram('anagram', 'nagaram');

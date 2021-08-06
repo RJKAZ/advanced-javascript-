@@ -364,3 +364,16 @@ same ([1,2,3,2,5], [9,1,4,4,11])
 this has a time complexity of - O(n)
 
 a soultion with 2 loops is always superior a solution with 2 nested loops
+
+
+Anagram Challenge 
+
+- Given two strings, write a function to determine if the second string is an anagram of the first.
+
+all words are single words, lowercase, with no numbers/spaces/special characters
+
+An anagram is a word, phrase, or name, formed by rearranging the letters of another, such as cinema, formed from iceman
+
+- jump to the JavaScript for this. 
+
+
