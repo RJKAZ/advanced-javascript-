@@ -160,14 +160,13 @@ subtotals(32, 41, 65, 87);
 
 // Section 3 of Course
 
-
 // The frequency counter pattern from section 5
 
-// so in this code ** (aka double asterix) is the exponentiation operator 
+// so in this code ** (aka double asterix) is the exponentiation operator
 // its is the equivilent of Math.pow
 // so Math.pow() returns the base to the exponent power as in base^exponent
 
-console.log(Math.pow(7,3));  // this returns 343
+console.log(Math.pow(7, 3)); // this returns 343
 
 // which is 7 to the 3rd power, or 7 * 7 * 7
 
@@ -175,51 +174,49 @@ function same(arr1, arr2) {
   if (arr1.length !== arr2.length) {
     return false;
   }
-  let frequencyCounter1 = {}
-  let frequencyCounter2 = {}
-  for(let val of arr1) {
-    frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1
+  let frequencyCounter1 = {};
+  let frequencyCounter2 = {};
+  for (let val of arr1) {
+    frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1;
   }
-  for(let val of arr2) {
-    frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1
+  for (let val of arr2) {
+    frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1;
   }
   console.log(frequencyCounter1);
   console.log(frequencyCounter2);
   for (let key in frequencyCounter1) {
-    if(!(key ** 2 in frequencyCounter2)) {
-      return false 
+    if (!(key ** 2 in frequencyCounter2)) {
+      return false;
     }
-    if(frequencyCounter2[key ** 2] !== frequencyCounter1[key]){
-      return false
+    if (frequencyCounter2[key ** 2] !== frequencyCounter1[key]) {
+      return false;
     }
   }
-return true
+  return true;
 }
 
-same ([1,2,3,2,5], [9,1,4,4,11])
+same([1, 2, 3, 2, 5], [9, 1, 4, 4, 11]);
 
 // The Anagram Question from Section 5
 
 // Given two strings, write a function to determine if the second string is an anagram of the first
 
-function anagram(str1, str2) {
-
-}
+function anagram(str1, str2) {}
 
 function validAnagram(first, second) {
   // if the length of the two strings is no equal, immediently return false
   if (first.length !== second.length) {
-    return false // there are no anagrams of different lengths
+    return false; // there are no anagrams of different lengths
   }
 
   //create an object named lookup
 
-  const lookup = {}
-  //loop thru the 1st string called down below - so this is looping over anagram 
+  const lookup = {};
+  //loop thru the 1st string called down below - so this is looping over anagram
   for (let i = 0; i < first.length; i++) {
     let letter = first[i];
     // if letter exists, increment, otherwise set to 1
-    lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
+    lookup[letter] ? (lookup[letter] += 1) : (lookup[letter] = 1);
   }
   console.log(lookup);
   // loop over the 2nd string
@@ -227,12 +224,12 @@ function validAnagram(first, second) {
     let letter = second[i];
     // can't find letter or letter is zero then its not an anagram
     if (!lookup[letter]) {
-      return false; 
+      return false;
     } else {
       lookup[letter] -= 1;
     }
   }
-  return true 
+  return true;
 }
 
 console.log(validAnagram('tim', 'mitt'));
@@ -243,35 +240,71 @@ console.log(validAnagram('tim', 'mitt'));
 
 function sumZero(arr) {
   for (let i = 0; i < arr.length; i++) {
-    for(let j = i+1; j < arr.length; j++) {
-      if(arr[i] + arr[j] === 0){
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === 0) {
         return [arr[i], arr[j]];
       }
     }
   }
 }
-sumZero([-4, -3, -2, -1, 0, 1, 2, 5])
+sumZero([-4, -3, -2, -1, 0, 1, 2, 5]);
 
 // time complexity - O(N^2)
 // space complexity - O(1)
 
 // refactored
 
-function sumZero1(arr){
+function sumZero1(arr) {
   let left = 0;
-  let right = arr.length -1;
-  while(left < right) {
+  let right = arr.length - 1;
+  while (left < right) {
     let sum = arr[left] + arr[right];
-    if(sum === 0) {
+    if (sum === 0) {
       return [arr[left], arr[right]];
-    } else if(sum > 0){
+    } else if (sum > 0) {
       right--;
     } else {
-        left++;
+      left++;
     }
   }
 }
-sumZero1([-4, -3, -2, -1, 0, 1, 2, 5])
+sumZero1([-4, -3, -2, -1, 0, 1, 2, 5]);
 
 // time complexity - O(N)
 // Space Complexity - O(1)
+
+// Another Function Test
+
+/*
+countUniqueValues
+
+Implement a function called countUniqueValues, which accepts a sorted array, 
+and counts the unique values in the array. there can be negative
+numbers in the array, but it will always be sorted
+*/
+
+// make the function that takes in an array
+function countUniqueValues(arr) {
+  // Adding a short cuircuit to the code
+  if (arr.length === 0) return 0;
+  // make a variable i and set it to 0
+  var i = 0;
+  // make a forloop, with a variable of 'j' and set it to an index of 1 (which in this case is also the value of 1)
+  // so j equals one while j is less then array.length (we don't want it to go any further) and then j++
+  // this makes j go thruough the entire loop
+  for (var j = 1; j < arr.length; j++) {
+    //in this loop we are going to compared the index of i and the index of j
+    //so we check if they are not eqaul to one another
+    if (arr[i] !== arr[j]) {
+      // if they are equal we move j ahead untill we find something where they are not equal and then move up i
+      i++;
+      // and then set i to equal j
+      arr[i] = arr[j];
+    }
+    //console.log(i, j);
+    return i + 1;
+  }
+}
+
+// calling the function with a new list of unique values
+countUniqueValues([1, 1, 1, 2, 2, 3, 4, 5, 5, 5, 6, 7]);
