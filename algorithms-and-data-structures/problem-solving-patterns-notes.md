@@ -392,3 +392,25 @@ sumzero([-2,0,1,3]) // undefined
 sumzero([1,2,3]) // undefined
 
 jump back to javascript
+
+-- Sliding Window Pattern --
+
+This pattern involves creating a window which can either be an array or number from one position to another
+Depending on a certain condition, the window either increases or closes (and a new window is created)
+Very useful for keeping track of a subset of data in an array/string etc. 
+
+jump back to javascript 
+
+-- Divide and Conquer Pattern --
+
+This pattern involved dividing a data set into smaller chunks and then repeating a process with a subset of data. 
+This pattern can tremendously decrease time complexity. 
+
+An Example
+
+Given a sorted array of integers, write a function called search, that accepts a value and return the index where the value passed to the function is location. 
+If the value is no found, return -1
+
+search([1,2,3,4,5,6],4) // 3 - so if we pass in the value of 4 it returns the index of 3 cause thats where 4 is
+search([1,2,3,4,5,6],6) // the value of 6 is at index of 5
+search([1,2,3,4,5,6], 11) // -1

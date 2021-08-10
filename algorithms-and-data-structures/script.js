@@ -308,3 +308,48 @@ function countUniqueValues(arr) {
 
 // calling the function with a new list of unique values
 countUniqueValues([1, 1, 1, 2, 2, 3, 4, 5, 5, 5, 6, 7]);
+
+
+// Sliding window pattern 
+/* Write a function called maxSubarraySum which accepts an array of integers and a number called n. The function should calculate the maximum sum of n consecutive elements in the array 
+maxSubarraySum([1,2,5,2,8,1,5],2) which returns 10
+*/
+
+function maxSubarraySum(arr, num) {
+  if (num > arr.length) {
+    return null;
+  }
+  var max = -Infinity;
+  for (let i = 0; i < arr.length - num + 1; i ++) {
+    temp = 0;
+    for (let j = 0; j < num; j++) {
+      temp += arr[i + j];
+    }
+    if (temp > max) {
+      max = temp;
+    }
+    console.log(temp,max)
+  }
+  return max; 
+}
+
+maxSubarraySum([2,6,9,2,1,8,5,6,3], 3)
+
+// Now to refactor without the nested loop
+
+function maxSubarraySum2(arr1, num1) {
+  let maxSum = 0;
+  let tempSum = 0;
+  if (arr1.length < num1) return null;
+  for (let i = 0; i < num1; i++) {
+    maxSum += arr1[i];
+  }
+  tempSum = maxSum;
+  for (let i = num1; i < arr1.length; i++) {
+    tempSum = tempSum - arr1[i - num1] + arr1[i];
+    maxSum = Math.max(maxSum, tempSum);
+  }
+  return maxSum; 
+}
+
+maxSubarraySum2([2,6,9,2,1,8,5,6,3], 3)
