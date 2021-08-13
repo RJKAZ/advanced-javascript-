@@ -30,10 +30,10 @@ CSS
 
 JAVASCRIPT
 
-1. Hoisting - Javascripts behind the scenes moving of declarations to the top. Like variables stored to the global scope, even if its down the code, Javascript declares it kind of at the top, regardless of where it is. 
+1. Hoisting - Javascripts behind the scenes moving of declarations to the top. Like variables stored to the global scope, even if its down the code, Javascript declares it kind of at the top, regardless of where it is.
 
 2. Closures
-Making a global varibable into a local (block and function)
+   Making a global varibable into a local (block and function)
 
 3. OOJS - Object oriented javascript is a libary for working with objects, such as inheritence, mixins, static inheritance, and other tools for objects and arrays.
 
@@ -44,29 +44,34 @@ Making a global varibable into a local (block and function)
 8. Object, Array and String APIs
 9. JS running on backend
 10. JS famous libraries
-NODE JS
-1. Express js server
-2. Restful API
-3. CRUD operations
-4. Npm
-5. Package.json postmortem
-6. Callback hell
-7. Event Loop
-8. Introduction to GraphQL
-REACT
-1. Introduction to React and installation
+    NODE JS
+11. Express js server
+12. Restful API
+13. CRUD operations
+14. Npm
+15. Package.json postmortem
+16. Callback hell
+17. Event Loop
+18. Introduction to GraphQL
+    REACT
+19. Introduction to React and installation
+    simple, npx create-react-app in the terminal
 
-2. Introducing JSX
+20. Introducing JSX
 
-3. Class based components
+21. Class based components
 
-4. Functional Components
+22. Functional Components
 
-5. Pure, Controlled and Uncontrolled Components
+23. Pure, Controlled and Uncontrolled Components
 
-6. React Hooks (useState, useEffect, custom hook)
+24. React Hooks (useState, useEffect, custom hook)
 
-7. State and Props
+25. State and Props
+
+State allows components to create and manage their own data. Unlike Props, components cannot pass data with state
+
+Props is short for properties, and they are used to pass data between React components. It goes in the directon from Parent to Child
 
 8. Handling events
 
@@ -82,7 +87,12 @@ REACT
 
 14. Context API
 
+- The React Context API is a way for a React app to effecitvly produce global variables that can be passed around.
+
 15. Portals
+
+- is a way to render child components into a DOM node outside of the parent DOM heirarchy by the component tree hierarchy
+- The most commong use case of a Portal is when a child component needs to visually break out of the parent container
 
 16. Virtual DOM
 
@@ -100,27 +110,33 @@ REACT
 
 REDUX
 
-1. Actions
+- Redux is a library that allows Javascript apps to manage application state
 
-2. Reducers
+1. Actions - An object containing a type and a payload, used to tell the reducer how to update the store
 
-3. Combined Reducer
+2. Reducers - a function that takes in the initial state and an action, and which returns that specific part of the global store
 
-4. Connect
+3. Combined Reducer - a functon from redux that allows us to put together all our reducers into a single object (often called the root reducer)
 
-5. Provider
+4. Connect - a functon from react-redux that allows us to connect a component to the store by adding items from the store to our component props, as well as adding dispatch to out component props
 
-6. BindActionCreator
+5. Provider - a component from react-redux that wraps our app component and allows each child component to be connected to the store.
+
+6. BindActionCreator (actionCreator anyway) a function that takes in a payload and creates an action object
 
 7. MapstateToProps/ MapDispatchToProps
 
-8. Store and CreateStore
+- MapStateToPros - a function we create that takes in a global state object and returns an object to be added to a component as part of its props object; it allows the component to access the data in the store.
 
-9. Dispatch
+- MapDispatchToProps - a function we create that takes in dispatch and returns an object to be added to a component as part of its props object; it allows the component to update the data in the store.
+
+8. Store and CreateStore - an object; think of it as a mega state that it accessed and updated with its own functions(similar to how React state is updated with setState)
+
+9. Dispatch - a function from Redux that sens and action object to its reducer (which updates the store)
 
 10. Types
 
-11. payload
+11. payload - is what is keyed (the key value pairs) in your actions and passed around between reducers in your redux applicaton.
 
 THIRD PARTY USEFUL APPS AND PACKAGES
 
