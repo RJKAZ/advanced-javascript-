@@ -10,23 +10,28 @@ HTML
 
 CSS
 
-1. Box Model
+1. Box Model - In CSS,, the term Box Model is used when talking about design and layout. Its essentially a box that wraps around every HTML element, it consists of a margins, borders, padding, and the actual content. 
 
-2. Flexbox
+2. Flexbox - Its a layout that allows responsive elements within a container to be automaticlly arranged depending on the screen size
 
-3. CSS Grid
+3. CSS Grid - its a 2 dimensional grid based layout system that works either as an alternative or alongside flexbox
 
-4. !important
+4. !important - the negation operation 2 === 2 is true but 2 !== 2 is false
 
-5. CSS Preprocessors
+5. CSS Preprocessors - a program that lets you generate css from the preprocessors own unique syntax
 
-6. Media Queries
+6. Media Queries - is a feature to allow content to be rendered differently based on a condition. The most commong condition being screen size. (finding breakpoints)
 
-7. CSS selectors
+7. CSS selectors - it selects the html element you want to style
 
-8. Pseudo Elements/Classes
+8. Pseudo Elements/Classes - a keyword added to a selector that lets you style a specific part of the selected element
 
-9. CSS Layout (Positioning)
+9. CSS Layout (Positioning) the position property specifies the type of positioning method used for an element 
+    static - not positioned in any special way, but just according to the normal flow of the page
+    relative - it positioned relative to its normal position
+    fixed - is positioned relative to the viewport, which means it always stays in the same place even when the page scrolls
+    absolute - is positioned relative to the nearest positioned ancestor 
+    sticky - is positioned based on the users scroll position 
 
 JAVASCRIPT
 
@@ -38,22 +43,39 @@ JAVASCRIPT
 3. OOJS - Object oriented javascript is a libary for working with objects, such as inheritence, mixins, static inheritance, and other tools for objects and arrays.
 
 4. Asynchronous JS (Promises, Callbacks, Async Await)
+
 5. Javascript Design Patterns
+
 6. ES6 (Import/Export, Arrow fxns, Spread Operator, map fxn, let/const, ==/===)
+
 7. Primitive and reference datatypes
+
 8. Object, Array and String APIs
+
 9. JS running on backend
+
 10. JS famous libraries
-    NODE JS
+
+NODE JS
+
 11. Express js server
+
 12. Restful API
+
 13. CRUD operations
+
 14. Npm
+
 15. Package.json postmortem
+
 16. Callback hell
+
 17. Event Loop
+
 18. Introduction to GraphQL
-    REACT
+
+REACT
+
 19. Introduction to React and installation
     simple, npx create-react-app in the terminal
 
