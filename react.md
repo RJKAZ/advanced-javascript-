@@ -10,7 +10,7 @@ HTML
 
 CSS
 
-1. Box Model - In CSS,, the term Box Model is used when talking about design and layout. Its essentially a box that wraps around every HTML element, it consists of a margins, borders, padding, and the actual content. 
+1. Box Model - In CSS,, the term Box Model is used when talking about design and layout. Its essentially a box that wraps around every HTML element, it consists of a margins, borders, padding, and the actual content.
 
 2. Flexbox - Its a layout that allows responsive elements within a container to be automaticlly arranged depending on the screen size
 
@@ -26,12 +26,12 @@ CSS
 
 8. Pseudo Elements/Classes - a keyword added to a selector that lets you style a specific part of the selected element
 
-9. CSS Layout (Positioning) the position property specifies the type of positioning method used for an element 
-    static - not positioned in any special way, but just according to the normal flow of the page
-    relative - it positioned relative to its normal position
-    fixed - is positioned relative to the viewport, which means it always stays in the same place even when the page scrolls
-    absolute - is positioned relative to the nearest positioned ancestor 
-    sticky - is positioned based on the users scroll position 
+9. CSS Layout (Positioning) the position property specifies the type of positioning method used for an element
+   static - not positioned in any special way, but just according to the normal flow of the page
+   relative - it positioned relative to its normal position
+   fixed - is positioned relative to the viewport, which means it always stays in the same place even when the page scrolls
+   absolute - is positioned relative to the nearest positioned ancestor
+   sticky - is positioned based on the users scroll position
 
 JAVASCRIPT
 
@@ -48,9 +48,47 @@ JAVASCRIPT
 
 6. ES6 (Import/Export, Arrow fxns, Spread Operator, map fxn, let/const, ==/===)
 
+- Import/Export is being able to pass moduels around javascript. For example if you download an NPM package, you'd have to import the module to get the desired functionality. Export is then to move things around to different files. I understand it, but its hard to write in words.
+
+- Arrow Functions - introduced in ES6 and they allow us to write shorter function syntax
+
+  - regular function
+
+    hello = function() {
+    return "Hello World!";
+    }
+
+  - Arrow function
+
+    hello = () => {
+    return "Hello World!";
+    }
+
+  - spread operator - it takes in an iterable (an array) and expeands it into individual elements.
+    - the most common use is making shallow copies of arrays/objects
+  - ...
+  - let array1 = ['h', 'e', 'y'];
+    let array2 = [...array1];
+    console.log(array2);
+
+  - Let/Const are mean to replace the old var keyword for varibales. Lets can be reassinged, and consts can't.
+
+    - there are other differences as well, like how they behave on the scope, Var was globaly scoped, but let/const have access to block/function scoping as well. Var and Let can be declared without being initialzied, const must be initiialized during declaration
+
+  - Map fnx - I'm assuming this is the map() method. It creates a new Array populated with the results of calling a provided function on every element in the calling array.
+
 7. Primitive and reference datatypes
 
+   - a Primative datatype is data that is not an object and has no methods.
+     - There are 7 primative data types in javascript; string, number, boolean, biginit, undefined, symbol, null
+   - a reference data type is data that is passed by reference.
+     - There are 3 reference data types; Arrays, Functions, and Objects.
+
 8. Object, Array and String APIs
+
+   - Objects are a stand alone entity with properties and type. It typically stores key-value pairs of data
+   - Arrays are used to store multiple values in a single variable. Javascript treats them like objects, and although objects can techncially hold more data (key/value), Arrays has access to the index, meaning you don't have to know what the data is to access it, you can just pull up the data in an array by an index. On Object you can't do that.
+   - String API's, ??? I know what strings are and I know what API's are, but even google is stumped by what this can be.
 
 9. JS running on backend
 
@@ -64,7 +102,7 @@ NODE JS
 
 13. CRUD operations
 
-14. Npm
+14. Npm - to download packages
 
 15. Package.json postmortem
 
