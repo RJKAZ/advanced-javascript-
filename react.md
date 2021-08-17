@@ -90,46 +90,58 @@ JAVASCRIPT
    - Arrays are used to store multiple values in a single variable. Javascript treats them like objects, and although objects can techncially hold more data (key/value), Arrays has access to the index, meaning you don't have to know what the data is to access it, you can just pull up the data in an array by an index. On Object you can't do that.
    - String API's, ??? I know what strings are and I know what API's are, but even google is stumped by what this can be.
 
-9. JS running on backend
+9. JS running on backend - Node.js essentially
 
-10. JS famous libraries
+10. JS famous libraries - so many, this term could apply to Node.js, React, Vue, Jquery, Angular, and so many more.
 
 NODE JS
 
 11. Express js server
 
-12. Restful API
+12. Restful API - programing interfact that conforms to the constraints of REST achitectural style and allows for interaction with RESTful web services. 
 
-13. CRUD operations
+13. CRUD operations - Create, Read, Update, and Delete - the four basic functions that models should be able to do. 
 
-14. Npm - to download packages
+14. Npm - Node Package Manager - to download packages
 
-15. Package.json postmortem
+15. Package.json postmortem - the postMortem throws me off, either its how to deal with dead code, or diagnostics. 
 
-16. Callback hell
+16. Callback hell - coding with complex nested callbacks. When every callback takes an argument that is the result of a previous callback. The code structure looks like a Pyramid and its diffifuclt to read and maintain. And one error could effect other functions that are relient on it. 
 
-17. Event Loop
+17. Event Loop - its what allows Node.js to perfrom non-blocking I/O pperations. Despite the fact that JavaScript is single threaded, it can offload operations to the system kernel whenever possiable. 
 
-18. Introduction to GraphQL
+18. Introduction to GraphQL - an open source data query and manipulation language for APIS and a runtime for fulfilling queries with existing data. 
 
 REACT
 
 19. Introduction to React and installation
     simple, npx create-react-app in the terminal
 
-20. Introducing JSX
+20. Introducing JSX - Stands for Javascript XML, it allows us to write HTML in React. 
 
-21. Class based components
+21. Class based components - How react used to render component since class base has state
 
-22. Functional Components
+22. Functional Components - how react currently renders components since Hooks allowed functional components to have state
 
 23. Pure, Controlled and Uncontrolled Components
 
+  Pure - by default React will always re-render the component each time there is a change in state or props vaslue. A Pure Component is a component that performs a check on the value of React prosp before deciding whether to re-redner the component or not. 
+
+  Controlled - is a component that takews it current value through props and notifies changes through callbacks like onChange. A parent component controlls it by handling the callback and managing its own state and passing the new values as props to the controlled component. You could also call this a 'dumb component'
+
+  Uncontrolled - is a component that stores its own state internally and you query the DOM using a ref to find its current value when you need it. This is a bit more like traditional HTML> 
+
 24. React Hooks (useState, useEffect, custom hook)
+
+React Hooks are relativly new to react and allow you to use State and other React features in functional components instead of class components. Hooks are functions that let you "hook into" React State and Lifecycle features from function components. React provided a few built in Hooks like useState, but you can also create you own. 
+
+useState - returns  a pair, the current state value and a function that lets you updata it. 
+
+useEffect - adds the ability to perform side effects from a function component. It serves the same purpose as compondentDidMount, etc. 
 
 25. State and Props
 
-State allows components to create and manage their own data. Unlike Props, components cannot pass data with state
+State allows components to create and manage their own data. Unlike Props, components cannot pass data with State
 
 Props is short for properties, and they are used to pass data between React components. It goes in the directon from Parent to Child
 
@@ -143,7 +155,7 @@ Props is short for properties, and they are used to pass data between React comp
 
 12. Code splitting
 
-13. Higher order components
+13. Higher order components - a higher order component (HOC)  for reusing component logic. A higher Order component is a function that takes a component and returns a new component.  
 
 14. Context API
 
@@ -154,7 +166,7 @@ Props is short for properties, and they are used to pass data between React comp
 - is a way to render child components into a DOM node outside of the parent DOM heirarchy by the component tree hierarchy
 - The most commong use case of a Portal is when a child component needs to visually break out of the parent container
 
-16. Virtual DOM
+16. Virtual DOM - A feature of react, instead of re-rendering the entire dom with every update to the page, React creates a virtual Dom, compares it to the actual DOM, and makes changes only to what changed, it doesn't require rerendering the whole DOM> 
 
 17. React Lifecycle methods
 
@@ -200,7 +212,7 @@ REDUX
 
 THIRD PARTY USEFUL APPS AND PACKAGES
 
-1. React Bootstrap
+1. React Bootstrap - Javascript Bootstrap, but rewritten for React. 
 
 2. Material UI
 
