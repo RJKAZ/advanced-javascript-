@@ -233,3 +233,7 @@ PROJECTS
 1. Role Based User Auth Login APP
 
 2. Portfolio
+
+
+
+// Notes for the training.
