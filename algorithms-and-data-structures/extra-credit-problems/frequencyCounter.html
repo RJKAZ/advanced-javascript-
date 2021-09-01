@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequency Counter</title>
+</head>
+<body>
+    <script>
+
+        // Write a function called sameFrequency. Given two positive integers, find out if the two numbers have the saem frequency of digits
+        // Your solution must has the following complexities 
+        // Time O(N)
+        // Sample input
+        //  sameFrequency(182, 281) // true
+        //  sameFrqeuncy(34, 14) // false 
+
+
+        // So by Frequency, this is refering two two numbers with the same numbers in it, the same number of time
+        // like 182 has 1,8, and 2 all once. 281 is the the same, so that would return true. 
+
+        // So the question is asking to compare the two values (i've named num1 and num2) and determing if they have the same frequency. 
+
+        function sameFrequency(num1, num2){
+            // so how we do this, we have to take each number and convert them into a string value and then split them apart. So we use two methods, the toString() method which turns it into a string and the split() method which then splits the string apart into an array. 
+
+            let digits1 = num1.toString().split('');
+            let digits2 = num2.toString().split('');
+            
+            // now we are stipulating that if the length of both of the split digit arrays are not the same length, to return false. 
+            if (digits1.length !== digits2.length) {
+                return false;
+            }
+            // now we create two empty objects 
+            let obj1 = {};
+            let obj2 = {};
+
+            // I don't fully get this code, but what this is doing, returning the arrays into the empty objects, turning them back into numbers and adding the value of the combined numbers. 
+            // Since adding the numbers in a same frequency would equal the same value. 
+            // So we then take the value of the 1st object and pit it against the value of Object 2, where if they are not equal they equate to false. 
+
+
+
+            for (const n of digits1) {
+                obj1[n] = (obj1[n] || 0) + 1; 
+            }
+
+            for (const n of digits2) {
+                obj2[n] = (obj2[n] || 0) + 1; 
+            }
+
+            for (const val in obj1) {
+                if (!(val in obj2)) {
+                    return false 
+                }
+                if (obj1[val] !== obj2[val]) {
+                    return false 
+                }
+            }
+
+            return true
+
+        }
+
+        console.log(sameFrequency(281, 182));
+
+
+
+
+
+
+
+
+
+        </script>
+    
+</body>
+</html>
