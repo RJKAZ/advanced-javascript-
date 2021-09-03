@@ -236,4 +236,16 @@ PROJECTS
 
 
 
-// Notes for the training.
+// Notes for the training.git 
+
+React UI
+React Bootstrap 
+material -ui - Theme Provider
+
+<Switch>
+<route>
+
+ErrorBoundary
+
+Zomato api
+
