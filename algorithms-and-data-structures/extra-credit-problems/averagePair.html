@@ -9,7 +9,9 @@
 <body>
     <script>
         /*
-        Write a function called averagePair. Given a sorted array of integers and a target average, 
+        Write a function called averagePair. 
+        Given a sorted array of integers and a target average, 
+
         determine if there is a pair of values in the array where the average of the pair equals the target average.
         There may be more then one pair thats matches the average target. 
 
@@ -25,9 +27,50 @@
 
         */
 
-        function averagePair(){
-            
-        }
+        
+
+        /*
+         Lets figure out the problem in plain english
+        1. Declare two variables/pointers (left and right), one starting in the beginning of the array and one starting at the end.
+        2. Iterate through the array with a while loop
+        3. compare the index of the left and right and get the average
+        4. create a conditional for if the average is equal to the target average, return true
+        5. Else return false at the end of the loop
+
+        the reason for using the while loop, we don't want pointers to pass each other. We know the left pointer will always be lower than our right. So we will want the conditional to continue happening as long as that statement is true.
+        we do want the pointers to get closer and closer together to the middle until they match up
+
+        First, create the function called averagePair and pass in the two arguments, array and target.
+
+        Now, let’s define our pointers. Left will start at the beginning of the array and right will be starting at the end of the array. We will then move them towards the opposite ends until we find the pair that fulfills the target average
+        
+        If it is easier for you, you can also name your pointers start and end. Whatever helps you understand what’s going on. Remember from our pseudocode, we are going to be using a while loop. We want to continue iterating through the array as long as our first pointer, left, is less than the second pointer, right.
+        
+        From here, we want to set a variable that will keep track of the average of the current two numbers in each iteration. To get the average, it will equal the two pointers added together and then divided by two.
+
+        We have defined the average and now we will create our conditional statement to compare our average to thetarget. If the averageis equal totarget, we will return true, else, we will continue with our while loop. If the value average is greater than the number we’re looking for, then we know we should move our second pointer, right, closer to the beginning of the array. But if the average is less than the number we’re looking for, we should then move our first pointer, left, forward.
+
+        Finally, if we iterate through the whole array and we cannot find any two numbers whose average are equal to the target average, we can return false.
+        
+        */
+
+        function averagePair(array, target){
+            let left = 0;
+            let right = array.length -1
+            while (left < right) {
+                let average = (array[left] + array[right]) / 2
+                if (average === target) {
+                    return true
+                } else if (average > target) {
+                    right--
+                } else {
+                    left++
+                }
+             }
+             return false
+        };
+
+        console.log(averagePair([1,2,3], 2))
     
     </script>
 </body>
